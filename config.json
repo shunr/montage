@@ -1,0 +1,9 @@
+{
+  "number_of_clips": 3,
+  "clip_temp_path": "./temp",
+  "clip_trim": 1,
+  "meta_tags": [
+    "leagueoflegends:playerchampion:lucian",
+    "leagueoflegends:event:pentakill"
+  ]
+}

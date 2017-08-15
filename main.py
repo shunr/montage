@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 
-from montage import scraper
-from montage import editor
 import random
 
-META_TAGS = [
-  "leagueoflegends:playerchampion:lucian",
-  "leagueoflegends:event:pentakill"
-]
+from montage import scraper
+from montage import editor
+from montage import settings
 
-N = 5
-clips = scraper.get_videos(META_TAGS, 3)
+config = settings.load_config()
+
+clips = scraper.get_videos(config["meta_tags"], 3)
 random.shuffle(clips)
-editor.generate_montage(clips[:N])
+editor.generate_montage(clips, config["number_of_clips"])
