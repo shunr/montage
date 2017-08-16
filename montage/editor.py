@@ -6,6 +6,7 @@ import moviepy.video.fx.all as vfx
 import moviepy.audio.fx.all as afx
 
 from montage import settings
+from montage import thumbnail
 
 config = settings.load_config()
 
@@ -32,7 +33,8 @@ def generate_montage(montage_clips, num_clips):
     mixed_audio = CompositeAudioClip(
         [_generate_bgm(final.duration), original_audio]).fx(afx.audio_fadeout, 2.5)
     final = final.set_audio(mixed_audio)
-    final.fx(vfx.resize, 0.15).write_videofile("output.mp4", fps=5)
+    final.save_frame("frame.png", t=final.duration/2)
+    #final.fx(vfx.resize, 0.15).write_videofile("output.mp4", fps=5)
 
 
 def _generate_bgm(duration):
